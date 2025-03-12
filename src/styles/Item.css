@@ -1,0 +1,23 @@
+.item-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -20px;
+}
+
+.edit-button,
+.delete-button {
+  cursor: pointer;
+}
+
+.edit-button:hover {
+  color: blue;
+}
+
+.delete-button:hover {
+  color: red;
+}
+
+.edit-button {
+  margin-right: 15px;
+}
