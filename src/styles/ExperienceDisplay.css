@@ -1,0 +1,47 @@
+.experience-container {
+  display: flex;
+  align-items: start;
+  gap: 5%;
+}
+
+.left-side {
+  max-width: 30%;
+  width: 30%;
+}
+
+.right-side {
+  max-width: 65%;
+  width: 65%;
+  border-left: 2px dotted;
+  padding: 5px 10px;
+  position: relative;
+}
+
+.company {
+  margin-bottom: 0;
+}
+
+.company,
+.position {
+  margin-top: 0;
+}
+
+.position {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.left-side *,
+.right-side * {
+  word-wrap: break-word;;
+}
+
+.dot {
+  position: absolute;
+  left: -6px;
+  top: 8px;
+  background-color: black;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
