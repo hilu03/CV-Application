@@ -97,6 +97,11 @@ h2:after {
 }
 
 .load-template-button {
-  background-color: white;
-  color: darkblue;
+  background-color: darkblue;
+  color: white;
+}
+
+.download-button {
+  background-color: green;
+  color: white;
 }

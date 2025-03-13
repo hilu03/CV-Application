@@ -11,6 +11,8 @@ import "./styles/Input.css";
 import { data, emptyData } from "./data.js";
 import { useState } from "react";
 import { FiPlusCircle } from "react-icons/fi";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 
 function App() {
   const [generalInfo, setGeneralInfo] = useState(data.general);
@@ -35,6 +37,19 @@ function App() {
             setSkills(data.skills);
             setExperience(data.experience);
           }}>Load template</button>
+          <button className="download-button" onClick={() => {
+            const displayElement = document.querySelector(".display");
+
+            html2canvas(displayElement, { scale: 2 }).then((canvas) => {
+              const imgData = canvas.toDataURL("image/png");
+              const pdf = new jsPDF("p", "mm", "a4");
+              const imgWidth = 210; // Chiều rộng A4 (mm)
+              const imgHeight = (canvas.height * imgWidth) / canvas.width;
+        
+              pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+              pdf.save("CV.pdf");
+            });
+          }}>Download</button>
           <select name="font" id="font" onChange={(e) => {
             document.body.style.fontFamily = e.target.value;
           }}>
