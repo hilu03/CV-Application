@@ -1,6 +1,6 @@
 import { MdExpandMore, MdExpandLess  } from "react-icons/md";
 import { useState } from "react";
-import "../styles/InputMenu.css";
+import "../../styles/InputMenu.css";
 
 function InputMenu({title, children}) {
   const [isExpanded, setIsExpanded] = useState(false);

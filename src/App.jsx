@@ -1,23 +1,49 @@
-import Generallnput from "./components/Generallnput.jsx";
-import GeneralDisplay from "./components/GeneralDisplay.jsx";
-import EducationDisplay from "./components/EducationDisplay.jsx";
-import ExperienceDisplay from "./components/ExperienceDisplay.jsx";
-import InputMenu from "./components/InputMenu.jsx";
+import Generallnput from "./components/input/Generallnput.jsx";
+import GeneralDisplay from "./components/display/GeneralDisplay.jsx";
+import EducationDisplay from "./components/display/EducationDisplay.jsx";
+import ExperienceDisplay from "./components/display/ExperienceDisplay.jsx";
+import SkillDisplay from "./components/display/SkillDisplay.jsx";
+import InputMenu from "./components/input/InputMenu.jsx";
 import Item from "./components/Item.jsx";
+import Credit from "./components/Credit.jsx";
 import "./styles/App.css";
 import "./styles/Input.css";
-import { data } from "./exampleData.js";
+import { data, emptyData } from "./data.js";
 import { useState } from "react";
 import { FiPlusCircle } from "react-icons/fi";
 
 function App() {
   const [generalInfo, setGeneralInfo] = useState(data.general);
   const [education, setEducation] = useState(data.education);
+  const [skills, setSkills] = useState(data.skills);
   const [experience, setExperience] = useState(data.experience);
 
   return (
     <div className="container">
       <div>
+        <Credit/>
+        <div className="button-group">
+          <button className="clear-button" onClick={() => {
+            setGeneralInfo(emptyData.general);
+            setEducation(emptyData.education);
+            setSkills(emptyData.skills);
+            setExperience(emptyData.experience);
+          }}>Clear</button>
+          <button className="load-template-button" onClick={() => {
+            setGeneralInfo(data.general);
+            setEducation(data.education);
+            setSkills(data.skills);
+            setExperience(data.experience);
+          }}>Load template</button>
+          <select name="font" id="font" onChange={(e) => {
+            document.body.style.fontFamily = e.target.value;
+          }}>
+            <option value="Arial">Arial</option>
+            <option value="Cambria">Cambria</option>
+            <option value="Time New Roman" selected>Time New Roman</option>
+            <option value="Roboto">Roboto</option>
+          </select>
+        </div>
         <InputMenu title={"General Info"}>
           <Generallnput info={generalInfo} setInfo={setGeneralInfo}/>
         </InputMenu>
@@ -32,6 +58,20 @@ function App() {
                 "degree": "Your degree",
                 "start": "yyyy",
                 "end": "yyyy"
+              });
+              setEducation(education.map(e => e));
+            }}/>
+          </div>
+        </InputMenu>
+        <InputMenu title={"Skills"}>
+          {skills.map((skill, id) => {
+            return <Item itemType={"skill"} key={id} id={id} name={skill.name} allInfo={skills} info={skill} setInfo={setSkills}/>
+          })}
+          <div className="add-button-container">
+            <FiPlusCircle  className="add-button" onClick={() => {
+              skills.push({
+                "name": "Skill name",
+                "description": "Skill description"
               });
               setEducation(education.map(e => e));
             }}/>
@@ -61,10 +101,20 @@ function App() {
 
       <div className="display">
         <GeneralDisplay info = {generalInfo}/>
-        <h2>Education</h2>
-        {education.map(ed => {
-          return <EducationDisplay info = {ed}/>
-        })}
+        <div className="row">
+          <div className="column">
+            <h2>Education</h2>
+            {education.map(ed => {
+              return <EducationDisplay info = {ed}/>
+            })}
+          </div>
+          <div className="column">
+            <h2>Skills</h2>
+              {skills.map(skill => {
+                return <SkillDisplay info = {skill}/>
+              })}
+          </div>
+        </div>
         <h2>Experience</h2>
         {experience.map(ex => {
           return <ExperienceDisplay info = {ex}/>

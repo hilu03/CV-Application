@@ -5,6 +5,11 @@
   margin-top: -20px;
 }
 
+.item-container .name {
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
 .edit-button,
 .delete-button {
   cursor: pointer;

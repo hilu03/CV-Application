@@ -1,4 +1,4 @@
-import "../styles/ExperienceDisplay.css";
+import "../../styles/ExperienceDisplay.css";
 
 function ExperienceDisplay({info}) {
   return (

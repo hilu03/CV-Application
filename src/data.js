@@ -13,14 +13,26 @@ export const data = {
       "school": "My university",
       "degree": "Bachelor of Software Engineering",
       "start": "2021",
-      "end": "Now"
+      "end": "Now",
+      "gpa": "3.62"
     },
     {
       "school": "My Highschool",
       "degree": "Highschool Dilopma",
       "start": "2018",
-      "end": "2021"
+      "end": "2021",
+      "gpa": "3.7"
     },
+  ],
+  "skills": [
+    {
+      "name": "Teamwork",
+      "description": "Thrive in a team environment and work well with others",
+    },
+    {
+      "name": "Communication skill",
+      "description": "Empathic listener and persuasive speake",
+    }
   ],
   "experience": [
     {
@@ -44,4 +56,19 @@ export const data = {
       "end": "08/2025",
     }
   ],
+};
+
+export const emptyData = {
+  "general": {
+    "name": "",
+    "position": "",
+    "email": "",
+    "phone": "",
+    "address": "",
+    "portfolio": "",
+    "summary": "",
+  },
+  "education": [],
+  "skills": [],
+  "experience": [],
 };

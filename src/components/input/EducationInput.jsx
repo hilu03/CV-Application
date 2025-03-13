@@ -29,6 +29,13 @@ function EducationInput({info, setInfo, id, allInfo}) {
           setInfo(allInfo.map(item => item));  
         }}/>
       </div>
+      <div className="input-container">
+        <label htmlFor="gpa">GPA</label>
+        <input type="text" id="gpa" value={info && info.gpa} onChange={(e) => {
+          allInfo[id].gpa = e.target.value;
+          setInfo(allInfo.map(item => item));  
+        }}/>
+      </div>
     </form>
   );
 }

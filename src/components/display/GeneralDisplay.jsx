@@ -1,4 +1,4 @@
-import "../styles/GeneralDisplay.css";
+import "../../styles/GeneralDisplay.css";
 import { FaPhone } from "react-icons/fa6";
 import { IoIosMail } from "react-icons/io";
 import { FaMapMarkerAlt } from "react-icons/fa";

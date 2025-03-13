@@ -1,0 +1,25 @@
+.school-timeline,
+.degree-gpa {
+  display: flex;
+  justify-content: space-between;
+}
+
+.school-timeline *,
+.degree-gpa * {
+  margin-top: 0;
+}
+
+.school-timeline .school,
+.degree-gpa .degree {
+  max-width: 70%;
+  
+}
+
+.school-timeline .timeline,
+.degree-gpa .gpa {
+  max-width: 25%
+}
+
+.degree {
+  margin-top: 0;
+}
